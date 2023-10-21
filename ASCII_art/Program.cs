@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,37 @@ namespace ASCII_art
                 Filter = "Images | *.bmp; *.png; *.jpg; *.JPEG"
             };
 
-            openFileDialog.ShowDialog();
+            Console.WriteLine("Press enter to start...\n");
+
+            while (true)
+            {
+                Console.ReadLine();
+
+                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                    continue;
+
+                Console.Clear();
+
+                var bitmap = new Bitmap(openFileDialog.FileName);
+
+
+                
+            }
         }
+
+        private static Bitmap ResizeBitmap(Bitmap bitmap)
+        {
+            var maxWidth = 350;
+            var newHeight = bitmap.Height / 1.5 * maxWidth / bitmap.Width;
+
+            if (bitmap.Width > maxWidth || bitmap.Height > newHeight)
+                bitmap = new Bitmap(bitmap, new Size(maxWidth, (int) newHeight));
+            return bitmap;
+            {
+
+            }
+
+        }
+
     }
 }
