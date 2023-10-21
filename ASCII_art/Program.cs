@@ -6,17 +6,20 @@ using System.Windows.Forms;
 
 namespace ASCII_art
 {
-    internal static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+           var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Images | *.bmp; *.png; *.jpg; *.JPEG"
+            };
+
+            openFileDialog.ShowDialog();
         }
     }
 }
