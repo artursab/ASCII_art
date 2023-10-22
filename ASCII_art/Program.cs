@@ -36,7 +36,7 @@ namespace ASCII_art
                 var bitmap = new Bitmap(openFileDialog.FileName);
                 bitmap = ResizeBitmap(bitmap);
 
-                char[] _asciiTable = { '.', ',',':','+','*','?','%','S','#','@' };
+                
                 
             }
         }
