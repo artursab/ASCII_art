@@ -31,5 +31,11 @@ namespace ASCII_art
 
             return result;
         }
+
+        private float Map(float valueToMap, float start1, float start2, float stop1, float stop2)
+        {
+            return ((valueToMap - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+        }
+
     }
 }
