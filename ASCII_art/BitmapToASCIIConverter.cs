@@ -25,7 +25,8 @@ namespace ASCII_art
                 result[y] = new char[_bitmap.Width];
                 for (int x = 0; x < _bitmap.Width; x++)
                 {
-
+                    int mapIndex = (int)Map(_bitmap.GetPixel(x,y).R, 0, 255, 0, _asciiTable.Length - 1);
+                    result[y][x] = _asciiTable[mapIndex];
                 }
             }
 
