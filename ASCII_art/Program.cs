@@ -35,8 +35,14 @@ namespace ASCII_art
 
                 var bitmap = new Bitmap(openFileDialog.FileName);
                 bitmap = ResizeBitmap(bitmap);
-
                 bitmap.ToGrayscale();
+
+                var converter = new BitmapToASCIIConverter(bitmap);
+                var rows = converter.Convert();
+
+                foreach (var row in rows)
+                    Console.WriteLine(row);
+                Console.SetCursorPosition(0, 0);
                 
             }
         }
